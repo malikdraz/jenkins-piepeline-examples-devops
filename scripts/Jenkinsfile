@@ -8,8 +8,10 @@ pipeline {
 
     stages {
         stage('Call Script') {
-            sh 'chmod +x scripts/sayhello.sh'
-            sh 'scripts/sayhello.sh ${TOPIC_NAME} ${TARGET}'
+            steps {
+                sh 'chmod +x sayhello.sh'
+                sh 'sayhello.sh ${TOPIC_NAME} ${TARGET}'
+            }
         }
     }
 }
