@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'TOPIC_NAME', defaultValue: 'DevOps', description: 'Topics to learn')
+        string(name: 'TARGET', defaultValue: 'Dream-Work', description: 'Target goal')
+    }
+
+    stages {
+        stage('Call Script') {
+            sh 'chmod +x scripts/sayhello.sh'
+            sh 'scripts/sayhello.sh ${TOPIC_NAME} ${TARGET}'
+        }
+    }
+}
