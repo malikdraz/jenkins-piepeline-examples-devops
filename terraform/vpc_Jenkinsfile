@@ -11,7 +11,9 @@ pipeline {
             steps {
                 sh """
                     cd terraform
+                    terraform fmt
                     terraform init
+                    terraform validate
                     terraform plan
                     terraform apply --auto-approve
                 """
